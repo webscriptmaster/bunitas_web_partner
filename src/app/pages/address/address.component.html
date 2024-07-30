@@ -1,0 +1,85 @@
+<!-- 
+  Authors : cosonas (Rahul Jograna)
+  Website : https://cosonas.com/
+  App Name : Bunitas Management Full App Flutter
+  This App Template Source code is licensed as per the
+  terms found in the Website https://cosonas.com/license
+  Copyright and Good Faith Purchasers © 2022-present cosonas.
+ -->
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    {{util.translate('Address')}}
+                </div>
+                <div class="card-body">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th> {{util.translate('Id')}}</th>
+                                <th [class.sort-asc]="sort['first_name'] == 'asc'" [class.sort-desc]="sort['first_name'] == 'desc'"><a (click)="sortOn('first_name')" style="cursor: pointer;">{{util.translate('User')}}</a></th>
+                                <th [class.sort-asc]="sort['title'] == 'asc'" [class.sort-desc]="sort['title'] == 'desc'"><a (click)="sortOn('title')" style="cursor: pointer;"> {{util.translate('Title')}}</a></th>
+                                <th [class.sort-asc]="sort['address'] == 'asc'" [class.sort-desc]="sort['address'] == 'desc'"><a (click)="sortOn('address')" style="cursor: pointer;"> {{util.translate('1st Line of address')}} </a></th>
+                                <th> {{util.translate('Actions')}} </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of dummy">
+                                <td *ngFor="let item of [1,2,3,4,5]">
+                                    <ngx-skeleton-loader animation="progress"></ngx-skeleton-loader>
+                                </td>
+                            </tr>
+                            <tr
+                                *ngFor="let item of list | paginate: {id:'pagin1', itemsPerPage: itemsPerPage, currentPage: page }">
+                                <td> {{item.id}} </td>
+                                <td>
+                                    {{item.first_name}} {{item.last_name}}
+                                </td>
+                                <td>
+                                    {{getTitle(item.title)}}
+                                </td>
+
+                                <td>
+                                    {{item.address}}
+                                </td>
+
+                                <!-- <td>
+                                    {{item.house}}
+                                </td>
+
+                                <td>
+                                    {{item.landmark}}
+                                </td> -->
+
+                                <!-- <td>
+                                    {{item.pincode}}
+                                </td> -->
+                                <td>
+                                    <c-badge color="danger" class="me-1 badge bg-danger" (click)="deleteAddress(item)">
+                                        {{ util.translate('Delete')}}
+                                    </c-badge>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="table-tools" *ngIf="list?.length > 0" >
+                        <div class="table-pagination">
+                          <pagination-controls  class="custom-pagination" id="pagin1" (pageChange)="page = $event"></pagination-controls>
+                          <input class="form-control page-number" [(ngModel)]="page" [ngModelOptions]="{standalone: true}"
+                            [placeholder]="util.translate('Page')">
+                        </div>
+                        <select id="view_count" [(ngModel)]="itemsPerPage" name="view_count" class="form-select ng-valid ng-dirty ng-touched view-count ">
+                            <option value="10" selected>10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                        </select>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

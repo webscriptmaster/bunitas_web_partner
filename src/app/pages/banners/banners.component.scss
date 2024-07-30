@@ -1,0 +1,59 @@
+/*
+  Authors : cosonas (Rahul Jograna)
+  Website : https://cosonas.com/
+  App Name : Bunitas Management Full App Flutter
+  This App Template Source code is licensed as per the
+  terms found in the Website https://cosonas.com/license
+  Copyright and Good Faith Purchasers © 2022-present cosonas.
+*/
+.selectItem {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid lightgray;
+  padding: 5px 0px;
+
+  .imgs {
+    height: 20px;
+    width: 20px;
+  }
+
+  .name {
+    font-size: 15px;
+    margin: 0px;
+    margin-left: 15px;
+  }
+}
+.table-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-pagination {
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-pagination {
+  margin-bottom: -13px !important;
+}
+
+.page-number {
+  width: 50px;
+  height: 38px;
+}
+
+.view-count {
+  width: 7%;
+  height: 38px;
+}
+
+th.sort-asc::after {
+  content: ' ▲';
+}
+
+th.sort-desc::after {
+  content: ' ▼';
+}
